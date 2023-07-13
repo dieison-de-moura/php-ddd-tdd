@@ -1,0 +1,20 @@
+{
+    "name": "dieison-de-moura/simple-php",
+    "description": "app",
+    "authors": [
+        {
+            "name": "dieison-de-moura",
+            "email": "di.eison95@outlook.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Core\\": "src/Core/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require-dev": {
+        "phpunit/phpunit": "^10",
+        "mockery/mockery": "2.0.x-dev"
+    }
+}
