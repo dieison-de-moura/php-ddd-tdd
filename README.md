@@ -16,3 +16,50 @@ Resumidamente, o TDD segue um ciclo de trabalho chamado "Red-Green-Refactor".
 - Docker
 - Nginx
 - PHPUnit
+
+# Instalação e utilização
+### Primeiro é necessário que você tenho docker instalado. Recomendo utilizar Linux ou WSL2.
+
+- Fazer o download do repositório:
+```
+git clone https://github.com/dieison-de-moura/php-ddd-tdd.git && cd php-ddd-tdd
+```
+
+- Criar a pasta data, assim você tem permissão de alteração nela.
+```
+mkdir docker/mysql/data
+```
+
+- Iniciar os containers:
+```
+docker compose up -d
+```
+
+- Caso você tenha composer instalado na sua máquina, utilizar o comando:
+```
+composer install
+```
+
+- Se não tiver o composer, execute o comando através do container:
+```
+docker exec app-php composer install
+```
+
+- Criar tabela products.
+    - Você pode cria-la manualmente:
+```
+CREATE TABLE `products` (`id` int NOT NULL,`name` varchar(255) DEFAULT '',`price` decimal(8,2) DEFAULT NULL,PRIMARY KEY (`id`))ENGINE=memory;
+```
+
+- Ou utilizar os comandos:
+    - ```docker exec -it db-mysql bash```
+    - ```mysql -uroot -proot```
+    - ```use php_ddd_tdd;```
+    - ```CREATE TABLE `products` (`id` int NOT NULL,`name` varchar(255) DEFAULT '',`price` decimal(8,2) DEFAULT NULL,PRIMARY KEY (`id`))ENGINE=memory;```
+    - Para sair do container basta utilizar a sequencia de teclas: Ctrl + P + Q
+- Executar os testes do projeto:
+```
+./vendor/bin/phpunit
+```
+
+- Os testes devem ser executados com sucesso!
