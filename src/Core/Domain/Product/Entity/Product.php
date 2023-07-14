@@ -1,16 +1,16 @@
 <?php
 
-namespace Core\Product\Entity;
+namespace Core\Domain\Product\Entity;
 
 use Exception;
 
 class Product implements ProductInterface
 {
-    private string $_id;
+    private int $_id;
     private string $_name;
     private float $_price;
 
-    public function __construct(string $id, string $name, float $price)
+    public function __construct(int $id, string $name, float $price)
     {
         $this->_id = $id;
         $this->_name = $name;
@@ -18,7 +18,7 @@ class Product implements ProductInterface
         $this->validate();
     }
 
-    public function getId(): string
+    public function getId(): int
     {
         return $this->_id;
     }
@@ -47,7 +47,7 @@ class Product implements ProductInterface
 
     public function validate(): bool
     {
-        if (strlen($this->_id) === 0) {
+        if ($this->_id <= 0) {
             throw new Exception("Id is required");
         }
         if (strlen($this->_name) === 0) {

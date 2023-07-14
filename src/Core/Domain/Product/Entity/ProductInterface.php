@@ -1,10 +1,10 @@
 <?php
 
-namespace Core\Product\Entity;
+namespace Core\Domain\Product\Entity;
 
 interface ProductInterface
 {
-    public function getId(): string;
+    public function getId(): int;
     public function getName(): string;
     public function getPrice(): float;
     public function changeName(string $name): void;

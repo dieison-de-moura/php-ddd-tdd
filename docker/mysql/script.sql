@@ -1,0 +1,1 @@
+CREATE TABLE `products` (`id` int NOT NULL,`name` varchar(255) DEFAULT '',`price` decimal(8,2) DEFAULT NULL,PRIMARY KEY (`id`))ENGINE=memory;
